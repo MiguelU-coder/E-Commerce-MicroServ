@@ -1,5 +1,3 @@
-Aquí tienes un **README.md profesional y completo** para tu repositorio **[E-Commerce‑MicroServ · GitHub](https://github.com/MiguelU-coder/E-Commerce-MicroServ)**. Está construido asumiendo que este repo es un **monorepo de microservicios para un e-commerce** con estructura de **Turborepo** (apps/packages) y tecnologías típicas del stack moderno (JavaScript/TypeScript, microservicios, Docker, etc.). Puedes adaptarlo según el stack exacto de cada servicio.
-
 ---
 
 ```markdown
@@ -22,6 +20,7 @@ Este repositorio es una base escalable para construir un sistema de **microservi
 ---
 
 ## 📁 Estructura del repositorio
+
 ```
 
 /
@@ -43,7 +42,7 @@ Este repositorio es una base escalable para construir un sistema de **microservi
 ├── turbo.json # Configuración de Turborepo
 └── README.md
 
-````
+```
 
 ---
 
@@ -77,6 +76,8 @@ Antes de comenzar, asegúrate de tener instalados:
    ```bash
    git clone https://github.com/MiguelU-coder/E-Commerce-MicroServ.git
    cd E-Commerce-MicroServ
+   ```
+
 ````
 
 2. **Instalar dependencias (con pnpm):**
@@ -166,3 +167,4 @@ Si quieres hablar sobre el proyecto o colaborar:
 ---
 
 ¡Gracias por explorar este proyecto! 🙌
+````
