@@ -1,5 +1,3 @@
----
-
 ```markdown
 # 🚀 E-Commerce-MicroServ
 
@@ -20,7 +18,6 @@ Este repositorio es una base escalable para construir un sistema de **microservi
 ---
 
 ## 📁 Estructura del repositorio
-
 ```
 
 /
@@ -42,7 +39,7 @@ Este repositorio es una base escalable para construir un sistema de **microservi
 ├── turbo.json # Configuración de Turborepo
 └── README.md
 
-```
+````
 
 ---
 
@@ -76,8 +73,6 @@ Antes de comenzar, asegúrate de tener instalados:
    ```bash
    git clone https://github.com/MiguelU-coder/E-Commerce-MicroServ.git
    cd E-Commerce-MicroServ
-   ```
-
 ````
 
 2. **Instalar dependencias (con pnpm):**
@@ -167,4 +162,3 @@ Si quieres hablar sobre el proyecto o colaborar:
 ---
 
 ¡Gracias por explorar este proyecto! 🙌
-````
