@@ -24,12 +24,11 @@ RUN pnpm --filter payment-service build
 FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-COPY --from=builder /app/apps/payment-service/dist ./dist
-COPY --from=builder /app/apps/payment-service/package.json ./package.json
-COPY --from=builder /app/packages ./packages
 COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./root-package.json
+COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/pnpm-lock.yaml ./
 COPY --from=builder /app/pnpm-workspace.yaml ./
+COPY --from=builder /app/packages ./packages
+COPY --from=builder /app/apps/payment-service ./apps/payment-service
 EXPOSE 3000
-CMD ["node", "dist/index.js"]
+CMD ["node", "apps/payment-service/dist/index.js"]

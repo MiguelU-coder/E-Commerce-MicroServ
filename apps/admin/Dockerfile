@@ -19,7 +19,6 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app .
 COPY apps/admin ./apps/admin
-RUN pnpm install --frozen-lockfile --offline
 ARG NEXT_PUBLIC_PRODUCT_SERVICE_URL
 ARG NEXT_PUBLIC_ORDER_SERVICE_URL
 ARG NEXT_PUBLIC_PAYMENT_SERVICE_URL
@@ -41,15 +40,11 @@ RUN pnpm --filter admin build
 FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-COPY --from=builder /app/apps/admin/.next ./apps/admin/.next
-COPY --from=builder /app/apps/admin/public ./apps/admin/public
-COPY --from=builder /app/apps/admin/package.json ./apps/admin/package.json
-COPY --from=builder /app/apps/admin/next.config.ts ./apps/admin/next.config.ts
+COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/pnpm-lock.yaml ./
 COPY --from=builder /app/pnpm-workspace.yaml ./
-COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/packages ./packages
-RUN pnpm install --frozen-lockfile --prod
+COPY --from=builder /app/apps/admin ./apps/admin
 EXPOSE 3003
 CMD ["pnpm", "--filter", "admin", "start"]
