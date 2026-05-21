@@ -19,6 +19,7 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app .
 COPY apps/client ./apps/client
+RUN pnpm install --frozen-lockfile --offline
 ARG NEXT_PUBLIC_PRODUCT_SERVICE_URL
 ARG NEXT_PUBLIC_ORDER_SERVICE_URL
 ARG NEXT_PUBLIC_PAYMENT_SERVICE_URL
