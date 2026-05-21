@@ -13,6 +13,7 @@ COPY apps/client/package.json apps/client/package.json
 COPY apps/admin/package.json apps/admin/package.json
 COPY packages ./packages
 RUN pnpm install --frozen-lockfile
+RUN cd packages/product-db && npx prisma generate
 
 FROM base AS runner
 WORKDIR /app
