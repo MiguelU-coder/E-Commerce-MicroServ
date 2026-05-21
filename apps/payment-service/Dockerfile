@@ -19,6 +19,7 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app .
 COPY apps/payment-service ./apps/payment-service
+RUN pnpm install --frozen-lockfile --offline
 RUN pnpm --filter payment-service build
 
 FROM base AS runner
