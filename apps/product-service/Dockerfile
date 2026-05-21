@@ -19,5 +19,6 @@ FROM base AS runner
 WORKDIR /app
 COPY --from=deps /app .
 COPY apps/product-service ./apps/product-service
+RUN pnpm install --frozen-lockfile --offline
 EXPOSE 8000
 CMD ["pnpm", "dlx", "tsx", "apps/product-service/src/index.ts"]
