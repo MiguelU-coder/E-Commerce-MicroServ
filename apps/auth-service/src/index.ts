@@ -8,7 +8,9 @@ import { producer } from "./utils/kafka.js";
 const app = express();
 app.use(
   cors({
-    origin: ["http://localhost:3003"],
+    origin: process.env.AUTH_CORS_ORIGIN
+      ? process.env.AUTH_CORS_ORIGIN.split(",")
+      : ["http://localhost:3003"],
     credentials: true,
   })
 );

@@ -1,0 +1,12 @@
+node_modules
+.git
+.gitignore
+.pnpm-store
+.next
+dist
+*.md
+.turbo
+project.tar.gz
+*.log
+.vscode
+.DS_Store
