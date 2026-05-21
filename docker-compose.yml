@@ -104,7 +104,6 @@ services:
     build:
       context: .
       dockerfile: apps/auth-service/Dockerfile
-    env_file: ./apps/auth-service/.env
     environment:
       CLERK_PUBLISHABLE_KEY: ${CLERK_PUBLISHABLE_KEY:-pk_test_ZGVzdGluZWQtc3VuZmlzaC0zOC5jbGVyay5hY2NvdW50cy5kZXYk}
       CLERK_SECRET_KEY: ${CLERK_SECRET_KEY:-sk_test_j1GbglNvAMV9QlqTtT2U6Syb9oHebGM0mPWLibNQdA}
@@ -123,7 +122,6 @@ services:
     build:
       context: .
       dockerfile: apps/product-service/Dockerfile
-    env_file: ./apps/product-service/.env
     environment:
       DATABASE_URL: postgresql://admin:admin123@postgres:5432/products?schema=public
       KAFKA_BROKERS: kafka-broker-1:9092,kafka-broker-2:9092,kafka-broker-3:9092
@@ -144,7 +142,6 @@ services:
     build:
       context: .
       dockerfile: apps/order-service/Dockerfile
-    env_file: ./apps/order-service/.env
     environment:
       KAFKA_BROKERS: kafka-broker-1:9092,kafka-broker-2:9092,kafka-broker-3:9092
       CLERK_PUBLISHABLE_KEY: ${CLERK_PUBLISHABLE_KEY:-pk_test_ZGVzdGluZWQtc3VuZmlzaC0zOC5jbGVyay5hY2NvdW50cy5kZXYk}
@@ -162,7 +159,6 @@ services:
     build:
       context: .
       dockerfile: apps/payment-service/Dockerfile
-    env_file: ./apps/payment-service/.env
     environment:
       KAFKA_BROKERS: kafka-broker-1:9092,kafka-broker-2:9092,kafka-broker-3:9092
       CLERK_PUBLISHABLE_KEY: ${CLERK_PUBLISHABLE_KEY:-pk_test_ZGVzdGluZWQtc3VuZmlzaC0zOC5jbGVyay5hY2NvdW50cy5kZXYk}
@@ -181,7 +177,6 @@ services:
     build:
       context: .
       dockerfile: apps/email-service/Dockerfile
-    env_file: ./apps/email-service/.env
     environment:
       KAFKA_BROKERS: kafka-broker-1:9092,kafka-broker-2:9092,kafka-broker-3:9092
     depends_on:
@@ -206,7 +201,6 @@ services:
         NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL: /
         NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${STRIPE_PUBLISHABLE_KEY:-pk_test_51Svs6M2cjzf4WKK7gJwQ01TQ6UWWUUjf0k0CCJSnwfTNKUNv8HLcY1LBekCij6cR6Z0IqAbCtZdAI05CJQYI56GQ00sxTVydNX}
         NODE_OPTIONS: ${NODE_OPTIONS:---max-old-space-size=512}
-    env_file: ./apps/client/.env
     environment:
       CLERK_SECRET_KEY: ${CLERK_SECRET_KEY:-sk_test_j1GbglNvAMV9QlqTtT2U6Syb9oHebGM0mPWLibNQdA}
     ports:
@@ -233,7 +227,6 @@ services:
         NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL: /
         NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME:-doo4ilqwx}
         NODE_OPTIONS: ${NODE_OPTIONS:---max-old-space-size=512}
-    env_file: ./apps/admin/.env
     environment:
       CLERK_SECRET_KEY: ${CLERK_SECRET_KEY:-sk_test_j1GbglNvAMV9QlqTtT2U6Syb9oHebGM0mPWLibNQdA}
     ports:
